@@ -10,9 +10,9 @@ let validateSignupForm = (payload) => {
     errors.email = 'Please provide a correct email address'
   }
 
-  if (!payload || typeof payload.organisation !== 'string' || payload.organisation.trim().length === 0) {
+  if (!payload || typeof payload.organization !== 'string' || payload.organization.trim().length === 0) {
     isFormValid = false
-    errors.email = 'Please provide your Organisation.'
+    errors.email = 'Please provide your organization.'
   }
 
   if (!payload || typeof payload.password !== 'string' || payload.password.trim().length < 8) {
@@ -67,9 +67,9 @@ let ValidateEditForm = (payload) => {
     errors.email = 'Please provide a correct email address'
   }
 
-  if (!payload || typeof payload.organisation !== 'string' || payload.organisation.trim().length === 0) {
+  if (!payload || typeof payload.organization !== 'string' || payload.organization.trim().length === 0) {
     isFormValid = false
-    errors.email = 'Please provide your Organisation.'
+    errors.email = 'Please provide your organization.'
   }
 
   if (!isFormValid) {

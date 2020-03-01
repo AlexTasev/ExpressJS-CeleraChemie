@@ -9,7 +9,7 @@ let userSchema = new mongoose.Schema({
     required: REQUIRED_VALIDATION_MESSAGE,
     unique: true
   },
-  organisation: {
+  organization: {
     type: String,
     required: REQUIRED_VALIDATION_MESSAGE
   },
@@ -44,7 +44,7 @@ module.exports.seedAdminUser = () => {
     User.create({
       email: 'admin@celera-chemie.com',
       name: 'Admin',
-      organisation: 'Celera-Chemie Ltd.',
+      organization: 'Celera-Chemie Ltd.',
       phoneNumber: '0896451571',
 
       salt: salt,

@@ -10,7 +10,7 @@ module.exports = new PassportLocalStrategy({
 }, (req, email, password, done) => {
   const user = {
     email: email.trim(),
-    organisation: req.body.organisation.trim(),
+    organization: req.body.organization.trim(),
     nameOfUser: req.body.nameOfUser.trim() || "",
     phoneNumber: req.body.phoneNumber.trim() || "",
     password: password.trim()

@@ -7,7 +7,7 @@ const router = new express.Router()
 
 router.get('/', authCheck, (req, res) => {
   User
-    .find().sort({organisation: 1})
+    .find().sort({organization: 1})
     .then(users => {
         users = users.filter((user) => user.roles.length !== 1)
       res.status(200).json(users)
@@ -46,7 +46,7 @@ router.put('/:id', authCheck, (req, res) => {
       .findById(userId)
       .then(existingUser => {
         existingUser.email = userObj.email
-        existingUser.organisation = userObj.organisation
+        existingUser.organization = userObj.organization
         existingUser.nameOfUser = userObj.nameOfUser
         existingUser.phoneNumber = userObj.phoneNumber
 
