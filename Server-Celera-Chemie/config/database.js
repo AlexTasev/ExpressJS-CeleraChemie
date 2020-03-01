@@ -20,5 +20,3 @@ module.exports = (settings) => {
 
   db.on('error', err => console.log(`Database error: ${err}`))
 }
-
-//  DONE!

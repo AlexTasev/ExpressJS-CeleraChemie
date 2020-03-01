@@ -10,5 +10,3 @@ module.exports = (app) => {
 
   console.log('Express ready!')
 }
-
-//  DONE!

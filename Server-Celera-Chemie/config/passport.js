@@ -7,5 +7,3 @@ module.exports = () => {
   passport.use('local-login', localLoginStrategy)
 }
 
-//  DONE!
-

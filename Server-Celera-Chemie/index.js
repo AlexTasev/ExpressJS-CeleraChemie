@@ -11,5 +11,3 @@ require('./config/passport')()
 
 app.listen(settings.port)
 console.log(`Server listening on port ${settings.port}...`)
-
-//  DONE!

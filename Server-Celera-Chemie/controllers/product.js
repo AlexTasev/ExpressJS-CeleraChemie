@@ -220,5 +220,3 @@ router.delete('/:id', authCheck, (req, res) => {
 })
 
 module.exports = router
-
-// DONE !
