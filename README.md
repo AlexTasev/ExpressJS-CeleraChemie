@@ -1,5 +1,5 @@
-# CeleraChemie-React.js-Project
-Celera Chemie Ltd. company web site. Build as web project for the ReactJS fundamentals course at SoftUni.
+# CeleraChemie-ExpressJS Project
+Celera Chemie Ltd. company web site. Build as web project for the ReactJS fundamentals and Angular courses at SoftUni, the current REST API is used to provide data to React and Angular app, built as SPA.
 
 Celera Chemie is an international company, dealing with laboratory supplies in the South-east Europe region. The company operates sales and logistic offices in Bucuresti, Nicosia and Sofia and multy- language service in English, Bulgarian, Greek and Romanian is required.
 
@@ -23,13 +23,4 @@ npm install
 The app uses nodemon. To run the web server type in terminal from Server-Celera-Chemie the following:
 ```
 nodemon index
-```
-## Run the React app
-The app uses React on client side. To run the React app type in terminal from celera-chemie-web-project directory the following:
-```
-npm start
-```
-By default, the app is running on:
-```
-localhost:3000
 ```
