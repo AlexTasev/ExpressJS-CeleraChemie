@@ -137,59 +137,12 @@ router.get('/all/:language', (req, res) => {
     })
 })
 
-router.get('/chemicals/:language', (req, res) => {
+router.get('/:category/:language', (req, res) => {
+  const productGroup = req.params.category;
   const lang = req.params.language;
   Product
     .find({
-      category: "chemicals"
-    })
-    .then(products => {
-      let sorted = products.filter((p) => p.language === lang)
-      res.status(200).json(sorted)
-    })
-})
-
-router.get('/consumables/:language', (req, res) => {
-  const lang = req.params.language;
-  Product
-    .find({
-      category: 'consumables'
-    })
-    .then(products => {
-      let sorted = products.filter((p) => p.language === lang)
-      res.status(200).json(sorted)
-    })
-})
-
-router.get('/instruments/:language', (req, res) => {
-  const lang = req.params.language;
-  Product
-    .find({
-      category: 'instruments'
-    })
-    .then(products => {
-      let sorted = products.filter((p) => p.language === lang)
-      res.status(200).json(sorted)
-    })
-})
-
-router.get('/glassware/:language', (req, res) => {
-  const lang = req.params.language;
-  Product
-    .find({
-      category: 'glassware'
-    })
-    .then(products => {
-      let sorted = products.filter((p) => p.language === lang)
-      res.status(200).json(sorted)
-    })
-})
-
-router.get('/filters/:language', (req, res) => {
-  const lang = req.params.language;
-  Product
-    .find({
-      category: 'filters'
+      category: productGroup
     })
     .then(products => {
       let sorted = products.filter((p) => p.language === lang)
