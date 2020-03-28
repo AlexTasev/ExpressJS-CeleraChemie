@@ -20,6 +20,7 @@ When the project is cloned or downloaded, type in the terminal the following in 
 npm install
 ```
 ## Run the web server
+An open connection to MongoDB is required.
 To run the web server type in terminal from Server-Celera-Chemie the following:
 ```
 node index
