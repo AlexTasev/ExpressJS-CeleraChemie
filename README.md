@@ -1,5 +1,5 @@
 # CeleraChemie-ExpressJS Project
-Celera Chemie Ltd. company web site. Build as web project for the ReactJS fundamentals and Angular courses at SoftUni, the current REST API is used to provide data to React and Angular app, built as SPA.
+Celera Chemie Ltd. company web site. Built as web project for the ReactJS fundamentals and Angular courses at SoftUni, the current REST API is used to provide data to React and Angular app, built as SPA.
 
 Celera Chemie is an international company, dealing with laboratory supplies in the South-east Europe region. The company operates sales and logistic offices in Bucuresti, Nicosia and Sofia and multy- language service in English, Bulgarian, Greek and Romanian is required.
 
@@ -20,7 +20,8 @@ When the project is cloned or downloaded, type in the terminal the following in 
 npm install
 ```
 ## Run the web server
-The app uses nodemon. To run the web server type in terminal from Server-Celera-Chemie the following:
+An open connection to MongoDB is required.
+To run the web server type in terminal from Server-Celera-Chemie the following:
 ```
-nodemon index
+node index
 ```
