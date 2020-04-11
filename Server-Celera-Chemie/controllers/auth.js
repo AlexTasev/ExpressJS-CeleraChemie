@@ -1,6 +1,7 @@
 const express = require('express')
 const passport = require('passport')
 const userValidator = require('../utilities/userValidator')
+const authCheck = require('../config/auth-check')
 
 const router = new express.Router()
 
@@ -27,6 +28,12 @@ router.post('/signup', (req, res, next) => {
       message: 'You have successfully signed up!',
     })
   })(req, res, next)
+})
+
+router.get('/check', authCheck, (req, res) => {
+  return res.status(200).json({
+    success: true,
+  })
 })
 
 router.post('/login', (req, res, next) => {
