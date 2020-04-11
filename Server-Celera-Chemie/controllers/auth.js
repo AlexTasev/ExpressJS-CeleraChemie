@@ -5,6 +5,24 @@ const authCheck = require('../config/auth-check')
 
 const router = new express.Router()
 
+router.get('/check', authCheck, (req, res) => {
+  return res.status(200).json({
+    success: true,
+  })
+})
+
+router.get('/admin', authCheck, (req, res) => {
+  if (req.user.roles.indexOf('Admin') > -1) {
+    return res.status(200).json({
+      success: true,
+    })
+  } else {
+    return res.status(401).json({
+      success: false,
+    })
+  }
+})
+
 router.post('/signup', (req, res, next) => {
   const validationResult = userValidator.validateSignupForm(req.body)
   if (!validationResult.success) {
@@ -28,12 +46,6 @@ router.post('/signup', (req, res, next) => {
       message: 'You have successfully signed up!',
     })
   })(req, res, next)
-})
-
-router.get('/check', authCheck, (req, res) => {
-  return res.status(200).json({
-    success: true,
-  })
 })
 
 router.post('/login', (req, res, next) => {
