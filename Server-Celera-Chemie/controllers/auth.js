@@ -1,61 +1,61 @@
-const express = require('express')
-const passport = require('passport')
-const userValidator = require('../utilities/userValidator')
-const authCheck = require('../config/auth-check')
+const express = require('express');
+const passport = require('passport');
+const userValidator = require('../utilities/userValidator');
+const authCheck = require('../config/auth-check');
 
-const router = new express.Router()
+const router = new express.Router();
 
 router.get('/check', authCheck, (req, res) => {
   return res.status(200).json({
     success: true,
-  })
-})
+  });
+});
 
 router.get('/admin', authCheck, (req, res) => {
   if (req.user.roles.indexOf('Admin') > -1) {
     return res.status(200).json({
       success: true,
-    })
+    });
   } else {
     return res.status(401).json({
       success: false,
-    })
+    });
   }
-})
+});
 
 router.post('/signup', (req, res, next) => {
-  const validationResult = userValidator.validateSignupForm(req.body)
+  const validationResult = userValidator.validateSignupForm(req.body);
   if (!validationResult.success) {
     return res.status(401).json({
       success: false,
       message: validationResult.message,
-      errors: validationResult.errors
-    })
+      errors: validationResult.errors,
+    });
   }
 
   return passport.authenticate('local-signup', (err) => {
     if (err) {
       return res.status(401).json({
         success: false,
-        message: err
-      })
+        message: err,
+      });
     }
 
     return res.status(200).json({
       success: true,
       message: 'You have successfully signed up!',
-    })
-  })(req, res, next)
-})
+    });
+  })(req, res, next);
+});
 
 router.post('/login', (req, res, next) => {
-  const validationResult = userValidator.validateLoginForm(req.body)
+  const validationResult = userValidator.validateLoginForm(req.body);
   if (!validationResult.success) {
     return res.status(401).json({
       success: false,
       message: validationResult.message,
-      errors: validationResult.errors
-    })
+      errors: validationResult.errors,
+    });
   }
 
   return passport.authenticate('local-login', (err, token, userData) => {
@@ -63,23 +63,23 @@ router.post('/login', (req, res, next) => {
       if (err.name === 'IncorrectCredentialsError') {
         return res.status(401).json({
           success: false,
-          message: err.message
-        })
+          message: err.message,
+        });
       }
 
       return res.status(401).json({
         success: false,
-        message: 'Could not process the form.'
-      })
+        message: 'Could not process the form.',
+      });
     }
 
     return res.json({
       success: true,
       message: 'You have successfully logged in!',
       token,
-      user: userData
-    })
-  })(req, res, next)
-})
+      user: userData,
+    });
+  })(req, res, next);
+});
 
-module.exports = router
+module.exports = router;
